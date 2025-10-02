@@ -1,0 +1,4 @@
+/* Minimal extras (Tailwind is via CDN) */
+.prose h1,h2,h3,h4 { font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto !important; letter-spacing:-0.01em;}
+.prose img { border-radius: 16px; }
+.prose blockquote { border-left: 4px solid #111; padding-left: 1rem; color:#444;}

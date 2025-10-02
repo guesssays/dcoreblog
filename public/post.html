@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Пост — Decor Blog</title>
+  <meta name="description" content="Статья Decor Blog">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700&family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body class="bg-white text-[#151617] overflow-x-hidden">
+  <nav class="w-full bg-[#fafafa] sticky top-0 z-20 border-b border-[#ececec] shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-6 py-2 px-3 md:px-10">
+      <a href="/" class="flex items-center select-none" aria-label="Decor Blog" style="height:64px;">
+        <span class="text-2xl md:text-3xl font-extrabold" style="font-family:'Space Grotesk', Manrope, Inter">DECOR<span class="text-black/40">.LITE</span></span>
+      </a>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="/index.html#posts" class="hover:text-black/80">посты</a>
+        <a href="/rss.xml" class="hover:text-black/80">RSS</a>
+        <a href="https://t.me/DecorPrime" target="_blank" class="bg-black text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-[#222]">DecorPrime</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="max-w-4xl mx-auto px-4 py-8 text-center">
+    <img id="post-cover" class="w-full h-auto rounded-2xl mb-6" alt="cover"/>
+    <h1 id="post-hero-title" class="font-[800] leading-[0.98]" style="font-family:'Space Grotesk'; font-size:clamp(2rem,6vw,3.2rem)"></h1>
+    <div id="post-meta" class="text-black/60 mt-2"></div>
+    <div class="mt-4 flex items-center justify-center gap-3 flex-wrap">
+      <button id="copyLink" class="px-4 py-2 rounded-full border">Скопировать ссылку</button>
+      <a href="https://t.me/dcoredanil?text=Здравствуйте!%20Хочу%20обсудить%20пост%20—%20" class="px-4 py-2 rounded-full border">Обсудить в Telegram</a>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 pb-16">
+    <article id="post-content" class="prose prose-lg max-w-none"></article>
+
+    <hr class="my-10">
+    <section class="rounded-2xl border p-6 shadow bg-white">
+      <h3 class="font-head text-xl font-bold mb-3">Обратная связь</h3>
+      <form name="contact" id="contact-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="grid md:grid-cols-2 gap-4">
+        <input type="hidden" name="form-name" value="contact">
+        <input type="hidden" name="source" value="Decor Blog contact">
+        <input type="hidden" name="page_url" value="">
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="utm_content" value="">
+        <input type="hidden" name="utm_term" value="">
+        <p class="hidden"><label>Не заполнять: <input name="bot-field"></label></p>
+
+        <input class="border rounded-lg p-3" type="text" name="name" placeholder="Имя" required>
+        <input class="border rounded-lg p-3" type="email" name="email" placeholder="Email">
+        <input class="border rounded-lg p-3 md:col-span-2" type="text" name="company" placeholder="Компания (опционально)">
+        <textarea class="border rounded-lg p-3 md:col-span-2" name="message" rows="4" placeholder="Ваш вопрос / комментарий"></textarea>
+        <button class="bg-black text-white rounded-full font-bold px-6 py-3 md:col-span-2" type="submit">Отправить</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="text-gray-400 text-base text-center py-8 select-none border-t">
+    <div class="mb-2">© 2025 Decor Blog • <a class="underline" href="/rss.xml">RSS</a> • <a class="underline" href="/sitemap.xml">Sitemap</a></div>
+  </footer>
+
+  <script src="/assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Decor Blog</title>
+    <link>https://example.netlify.app/</link>
+    <description>Сайты, CRM и прозрачный SMM</description>
+    <language>ru</language>
+    <item>
+      <title>С чего начать: сайт как ядро, а не приложение к Instagram</title>
+      <link>https://example.netlify.app/post.html?slug=welcome</link>
+      <guid>https://example.netlify.app/post.html?slug=welcome</guid>
+      <pubDate>Mon, 22 Sep 2025 12:00:00 +0000</pubDate>
+      <description>Короткая схема: зачем бизнесу сайт даже при сильном Instagram — и как соединить источники трафика с CRM.</description>
+    </item>
+    <item>
+      <title>CRM: когда она действительно нужна, а когда — лишняя</title>
+      <link>https://example.netlify.app/post.html?slug=crm-basics</link>
+      <guid>https://example.netlify.app/post.html?slug=crm-basics</guid>
+      <pubDate>Thu, 25 Sep 2025 12:00:00 +0000</pubDate>
+      <description>Признаки, что пора внедрять CRM. Этапы и ошибки.</description>
+    </item>
+  </channel>
+</rss>

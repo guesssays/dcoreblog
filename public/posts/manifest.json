@@ -1,0 +1,43 @@
+{
+  "title": "Decor Blog",
+  "posts": [
+    {
+      "slug": "welcome",
+      "title": "С чего начать: сайт как ядро, а не приложение к Instagram",
+      "date": "2025-09-20",
+      "tags": [
+        "strategy",
+        "crm",
+        "smm"
+      ],
+      "excerpt": "Короткая схема: зачем бизнесу сайт даже при сильном Instagram — и как соединить источники трафика с CRM.",
+      "cover": "https://images.unsplash.com/photo-1556767576-cfba56da9b0f?w=1200&q=80",
+      "reading_time": "6 мин"
+    },
+    {
+      "slug": "crm-basics",
+      "title": "CRM: когда она действительно нужна, а когда — лишняя",
+      "date": "2025-09-25",
+      "tags": [
+        "crm",
+        "ops"
+      ],
+      "excerpt": "Признаки, что пора внедрять CRM. Реалистичные этапы и ошибки на старте.",
+      "cover": "https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?w=1200&q=80",
+      "reading_time": "7 мин"
+    },
+    {
+      "slug": "smm-transparent-kpi",
+      "title": "Прозрачный SMM: KPI, которые понимает владелец",
+      "date": "2025-09-28",
+      "tags": [
+        "smm",
+        "kpi",
+        "analytics"
+      ],
+      "excerpt": "Как перестать спорить про «красиво/некрасиво» и перейти к цифрам: заявки, CPL, конверсия сайта.",
+      "cover": "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=1200&q=80",
+      "reading_time": "8 мин"
+    }
+  ]
+}

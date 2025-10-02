@@ -1,0 +1,17 @@
+# ====== Decor Blog on Netlify ======
+[build]
+  publish   = "public"
+  functions = "netlify/functions"
+
+# After subscribe/contact submit go to thank-you page
+[[redirects]]
+  from = "/__forms/thanks"
+  to   = "/thanks.html"
+  status = 302
+
+# Force HTTPS
+[[redirects]]
+  from = "http://*"
+  to   = "https://:splat"
+  status = 301
+  force  = true
