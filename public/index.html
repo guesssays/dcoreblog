@@ -14,6 +14,7 @@
   <meta property="og:type" content="website">
 </head>
 <body class="bg-white text-[#151617] overflow-x-hidden">
+
   <!-- NAV -->
   <nav class="w-full bg-[#fafafa] sticky top-0 z-20 border-b border-[#ececec] shadow-sm">
     <div class="max-w-7xl mx-auto flex items-center justify-between gap-6 py-2 px-3 md:px-10">
@@ -45,42 +46,152 @@
     </div>
   </section>
 
-  <!-- FILES -->
   <main class="max-w-7xl mx-auto px-3 md:px-10 pb-16">
+    <!-- FILES -->
     <section id="files" class="rounded-2xl border p-6 shadow bg-white mb-8">
-      <h2 class="font-head text-2xl md:text-3xl font-extrabold mb-2">Файлы</h2>
-      <p class="text-black/70 mb-5">Скачиваются сразу, без формы. В Prime есть расширенные версии с примерами внедрения.</p>
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+        <div>
+          <h2 class="font-head text-2xl md:text-3xl font-extrabold mb-1">Файлы</h2>
+          <p class="text-black/70">Скачиваются сразу, без формы. В Prime есть расширенные версии с примерами внедрения.</p>
+        </div>
+
+        <!-- КНОПКА СКАЧАТЬ ВЕСЬ ПАК -->
+        <a href="/assets/dcore_lite_starter_kit.zip" download
+           class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-black text-white font-bold hover:bg-[#222] transition whitespace-nowrap">
+          <i class="bi bi-archive"></i> Скачать весь пак
+        </a>
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- 1 -->
         <a class="group rounded-2xl border p-5 hover:shadow-lg transition bg-white flex flex-col"
-           href="/assets/checklist_10_leaks.pdf" download>
+           href="/assets/checklist_10_leaks.md" download>
           <div class="font-bold text-lg mb-1">Чек-лист 10 утечек заявок</div>
-          <div class="text-black/70 text-sm mb-3">Где теряются заявки между рекламой, мессенджерами и CRM. 1 страница.</div>
-          <div class="mt-auto text-sm font-semibold opacity-80 group-hover:opacity-100"><i class="bi bi-download"></i> Скачать PDF</div>
+          <div class="text-black/70 text-sm mb-3">Где теряются заявки между рекламой, мессенджерами и CRM. Быстрые фиксы и приоритеты.</div>
+          <div class="mt-auto text-sm font-semibold opacity-80 group-hover:opacity-100"><i class="bi bi-download"></i> Скачать MD</div>
         </a>
 
+        <!-- 2 -->
         <a class="group rounded-2xl border p-5 hover:shadow-lg transition bg-white flex flex-col"
-           href="/assets/utm_cheatsheet.pdf" download>
+           href="/assets/utm_cheatsheet.md" download>
           <div class="font-bold text-lg mb-1">Шпаргалка по UTM</div>
-          <div class="text-black/70 text-sm mb-3">Как правильно ставить utm_source, utm_medium, utm_campaign. 1 страница.</div>
-          <div class="mt-auto text-sm font-semibold opacity-80 group-hover:opacity-100"><i class="bi bi-download"></i> Скачать PDF</div>
+          <div class="text-black/70 text-sm mb-3">Правильные схемы utm_source, utm_medium, utm_campaign, готовые паттерны под каналы.</div>
+          <div class="mt-auto text-sm font-semibold opacity-80 group-hover:opacity-100"><i class="bi bi-download"></i> Скачать MD</div>
         </a>
 
+        <!-- 3 -->
         <a class="group rounded-2xl border p-5 hover:shadow-lg transition bg-white flex flex-col"
-           href="/assets/smm_kpi_onepager.docx" download>
+           href="/assets/smm_kpi_onepager.md" download>
           <div class="font-bold text-lg mb-1">SMM KPI на 1 лист</div>
-          <div class="text-black/70 text-sm mb-3">Чёткие метрики для контента и трафика. Формат .docx.</div>
-          <div class="mt-auto text-sm font-semibold opacity-80 group-hover:opacity-100"><i class="bi bi-download"></i> Скачать DOCX</div>
+          <div class="text-black/70 text-sm mb-3">Метрики, которые действительно коррелируют с продажами, без vanity-показателей.</div>
+          <div class="mt-auto text-sm font-semibold opacity-80 group-hover:opacity-100"><i class="bi bi-download"></i> Скачать MD</div>
         </a>
+
+        <!-- 4 -->
+        <a class="group rounded-2xl border p-5 hover:shadow-lg transition bg-white flex flex-col"
+           href="/assets/landing_brief_template.md" download>
+          <div class="font-bold text-lg mb-1">Бриф на лендинг</div>
+          <div class="text-black/70 text-sm mb-3">Структурированное ТЗ: оффер, смыслы, блок-схема, контент, лид-магниты.</div>
+          <div class="mt-auto text-sm font-semibold opacity-80 group-hover:opacity-100"><i class="bi bi-download"></i> Скачать MD</div>
+        </a>
+
+        <!-- 5 -->
+        <a class="group rounded-2xl border p-5 hover:shadow-lg transition bg-white flex flex-col"
+           href="/assets/retargeting_map_playbook.md" download>
+          <div class="font-bold text-lg mb-1">Карта ретаргета</div>
+          <div class="text-black/70 text-sm mb-3">Сегменты, сообщения, пороги частоты, логика исключений. Готовые цепочки.</div>
+          <div class="mt-auto text-sm font-semibold opacity-80 group-hover:opacity-100"><i class="bi bi-download"></i> Скачать MD</div>
+        </a>
+
+        <!-- 6 -->
+        <a class="group rounded-2xl border p-5 hover:shadow-lg transition bg-white flex flex-col"
+           href="/assets/utm_builder.csv" download>
+          <div class="font-bold text-lg mb-1">UTM-builder таблица</div>
+          <div class="text-black/70 text-sm mb-3">Готовая CSV-заготовка: подставляешь поля — получаешь чистую ссылку.</div>
+          <div class="mt-auto text-sm font-semibold opacity-80 group-hover:opacity-100"><i class="bi bi-download"></i> Скачать CSV</div>
+        </a>
+      </div>
+
+      <!-- Подсказка по форматам -->
+      <div class="mt-4 text-sm text-black/60">
+        Нужны PDF-версии в фирменном стиле DCORE? Напиши — подготовлю макеты.
       </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- ABOUT (усиленная подача) -->
     <section id="about" class="rounded-2xl border p-6 shadow bg-white mb-8">
-      <h2 class="font-head text-2xl md:text-3xl font-extrabold mb-2">Кто я</h2>
-      <div class="text-black/80 leading-relaxed space-y-3">
-        <p>5+ лет в маркетинге и продажах. Работал в SMM, строю связки трафика, делаю продающие сайты и подключаю аналитику. Провожу минимум 2 встречи в день с владельцами бизнеса из разных ниш.</p>
-        <p>Занимаюсь веб-разработкой и развиваю собственный стартап в телемедицине. В канале делюсь схемами без воды и готовыми листами внедрения.</p>
+      <div class="flex flex-col lg:flex-row gap-6 items-start">
+        <!-- Левая колонка: интро -->
+        <div class="flex-1">
+          <h2 class="font-head text-2xl md:text-3xl font-extrabold mb-2">Кто я</h2>
+          <p class="text-black/80 leading-relaxed">
+            >5 лет в маркетинге и продажах. Прошёл путь от SMM до разработки сайтов и настройки сквозной аналитики. Провожу минимум 2 встречи в день с владельцами бизнеса — вижу реальные цифры и боли в B2C и B2B.
+          </p>
+          <p class="text-black/80 leading-relaxed mt-3">
+            Делаю продающие сайты, строю связки трафика, подключаю CRM и пиксели, разруливаю мусорные заявки. Параллельно развиваю собственный стартап в телемедицине.
+          </p>
+
+          <!-- Плашки-доказательства -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-5">
+            <div class="rounded-xl border p-4 text-center">
+              <div class="text-2xl font-extrabold">200+</div>
+              <div class="text-xs text-black/60 mt-1">индивидуальных консультаций</div>
+            </div>
+            <div class="rounded-xl border p-4 text-center">
+              <div class="text-2xl font-extrabold">30+</div>
+              <div class="text-xs text-black/60 mt-1">проекта в разных нишах</div>
+            </div>
+            <div class="rounded-xl border p-4 text-center">
+              <div class="text-2xl font-extrabold">2/день</div>
+              <div class="text-xs text-black/60 mt-1">живых встречи с бизнесом</div>
+            </div>
+            <div class="rounded-xl border p-4 text-center">
+              <div class="text-2xl font-extrabold">ROI</div>
+              <div class="text-xs text-black/60 mt-1">фокус на деньгах, не лайках</div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a class="inline-flex items-center gap-2 px-5 py-3 rounded-full border hover:bg-black hover:text-white transition font-semibold" href="https://t.me/dcoredanil" target="_blank">
+              <i class="bi bi-telegram"></i> Написать в Telegram
+            </a>
+            <a class="inline-flex items-center gap-2 px-5 py-3 rounded-full border hover:bg-black hover:text-white transition font-semibold" href="https://t.me/DCORELite" target="_blank">
+              <i class="bi bi-people"></i> Вступить в DCORE Lite
+            </a>
+            <a class="inline-flex items-center gap-2 px-5 py-3 rounded-full border hover:bg-black hover:text-white transition font-semibold" href="https://t.me/DCOREPrime" target="_blank">
+              <i class="bi bi-lightning-charge"></i> Посмотреть DCORE Prime
+            </a>
+          </div>
+        </div>
+
+        <!-- Правая колонка: мини-таймлайн -->
+        <div class="w-full lg:w-[380px]">
+          <div class="rounded-2xl border p-5 bg-white">
+            <h3 class="font-head text-xl font-bold mb-3">Как обычно помогаю</h3>
+            <ol class="space-y-3 text-sm">
+              <li class="flex gap-3">
+                <div class="mt-1 text-black/50">1.</div>
+                <div><b>Быстрый аудит</b> наличия сайта, связки с мессенджерами и UTM. Находим утечки.</div>
+              </li>
+              <li class="flex gap-3">
+                <div class="mt-1 text-black/50">2.</div>
+                <div><b>Связка трафика</b>: корректные цели, пиксель, ретаргет. Сразу режем мусор.</div>
+              </li>
+              <li class="flex gap-3">
+                <div class="mt-1 text-black/50">3.</div>
+                <div><b>Лендинг</b> под оффер и сегменты. A/B простых экранов вместо магии.</div>
+              </li>
+              <li class="flex gap-3">
+                <div class="mt-1 text-black/50">4.</div>
+                <div><b>CRM + отчёт</b> по источникам. Смотрим ROMI, а не лайки.</div>
+              </li>
+            </ol>
+            <div class="mt-4 p-3 rounded-xl bg-[#fafafa] border text-sm">
+              Можно начать с мини-диагностики за 20 минут — дам конкретные next steps.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -94,7 +205,7 @@
 
       <form name="contact" id="contact-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="grid md:grid-cols-2 gap-4 max-w-2xl">
         <input type="hidden" name="form-name" value="contact">
-        <input type="hidden" name="source" value="DCORE landing">
+        <input type="hidden" name="source" value="DCORE files landing">
         <input type="hidden" name="page_url" value="">
         <input type="hidden" name="utm_source" value="">
         <input type="hidden" name="utm_medium" value="">
