@@ -31,10 +31,24 @@
 
   <!-- NAV -->
   <nav class="w-full bg-[#fafafa] sticky top-0 z-20 border-b border-[#ececec] shadow-sm">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-6 py-2 px-3 md:px-10">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3 py-2 px-3 md:px-10">
       <a href="/" class="flex items-center select-none" aria-label="DCORE" style="height:64px;">
         <span class="text-2xl md:text-3xl font-extrabold" style="font-family:'Space Grotesk', Manrope, Inter">DCORE<span class="text-black/40">.LITE</span></span>
       </a>
+
+      <!-- CTA для мобильной версии -->
+      <a
+        href="https://t.me/dcoredanil"
+        target="_blank"
+        rel="noopener"
+        class="md:hidden inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black text-white font-semibold"
+        aria-label="Написать в Telegram"
+      >
+        <i class="bi bi-telegram"></i>
+        Написать
+      </a>
+
+      <!-- Основное меню (десктоп) -->
       <div class="hidden md:flex items-center gap-6">
         <a href="#files" class="hover:text-black/80">файлы</a>
         <a href="#about" class="hover:text-black/80">обо мне</a>
@@ -110,7 +124,7 @@
           </div>
         </a>
 
-        <!-- 4: Шапка профиля (исправлено p-5) -->
+        <!-- 4: Шапка профиля -->
         <a class="group rounded-2xl border p-5 hover:shadow-lg transition bg-white flex flex-col"
            href="/assets/instagram_profile_header_guide.docx" download>
           <div class="font-bold text-lg mb-1">Гайд по шапке профиля Instagram</div>
