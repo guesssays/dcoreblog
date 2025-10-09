@@ -276,7 +276,6 @@
     <section id="contact" class="rounded-2xl border p-6 shadow bg-white">
       <h2 class="font-head text-2xl md:text-3xl font-extrabold mb-2">Контакты</h2>
 
-      <!-- Быстрые способы связи -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
         <a class="rounded-xl border p-4 hover:bg-black hover:text-white transition flex items-center justify-center gap-2"
            href="https://t.me/dcoredanil" target="_blank" rel="noopener">
@@ -292,7 +291,6 @@
         </a>
       </div>
 
-      <!-- Как начать работу -->
       <div class="rounded-xl border p-4 bg-[#fafafa]">
         <h3 class="font-bold mb-2">Как начать</h3>
         <ul class="list-disc pl-5 text-sm text-black/80 space-y-1">
@@ -316,7 +314,6 @@
          role="dialog" aria-modal="true" aria-labelledby="audit-title"
          class="relative w-full md:max-w-2xl bg-white rounded-t-3xl md:rounded-3xl shadow-2xl border overflow-hidden
                 translate-y-6 md:scale-95 opacity-0 transition-all duration-300 ease-out will-change-transform">
-      <!-- Ribbon / доверие -->
       <div class="absolute -left-10 -top-10 rotate-[-15deg]">
         <div class="bg-emerald-600 text-white text-xs md:text-sm font-bold px-6 py-2 rounded-xl shadow-lg">
           Бесплатно • 20 минут
@@ -324,13 +321,11 @@
       </div>
 
       <div class="p-5 md:p-7">
-        <!-- Close -->
         <button id="audit-close" aria-label="Закрыть окно"
                 class="absolute right-3 top-3 text-black/50 hover:text-black">
           <i class="bi bi-x-lg text-xl"></i>
         </button>
 
-        <!-- Заголовок -->
         <div class="flex items-center gap-2 mb-2">
           <i class="bi bi-graph-up-arrow text-emerald-600 text-xl"></i>
           <div class="text-[11px] uppercase tracking-wide text-emerald-700 font-bold">мини-диагностика</div>
@@ -339,10 +334,9 @@
           Бесплатный аудит вашего Instagram-профиля для бизнеса
         </h3>
         <p class="text-black/70 mt-2">
-          За 20 минут покажу, где пропадают заявки, и что мешает продажам.
+          За 20 минут покажу, где «утекают» заявки, и что мешает продажам. Без воды и навязчивых продаж.
         </p>
 
-        <!-- Соц.доказательство + ограничение -->
         <div class="mt-3 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
           <div class="flex items-center gap-2 text-sm text-black/70">
             <i class="bi bi-shield-check text-emerald-600"></i>
@@ -356,7 +350,6 @@
           </div>
         </div>
 
-        <!-- Блок конкретики (что проверю) -->
         <div class="grid md:grid-cols-2 gap-3 mt-5">
           <div class="rounded-xl border p-3">
             <div class="font-semibold mb-2">Продажи и заявки</div>
@@ -376,7 +369,6 @@
           </div>
         </div>
 
-        <!-- CTA блок -->
         <div class="mt-6 flex flex-col md:flex-row items-stretch md:items-center gap-3">
           <a id="cta-telegram"
              href="https://t.me/dcoredanil?text=Здравствуйте!%20Хочу%20бесплатный%2020-минутный%20аудит%20Instagram.%20Мой%20@профиль:%20_____"
@@ -390,12 +382,10 @@
           </button>
         </div>
 
-        <!-- Микро-гарантии -->
         <div class="mt-3 text-xs text-black/60">
           Нажимая, вы соглашаетесь на разовую связь по вашей заявке. Спам не шлём.
         </div>
 
-        <!-- Встроенная форма (второй шаг) -->
         <form id="audit-form" class="hidden mt-5 space-y-3">
           <div class="grid md:grid-cols-3 gap-3">
             <div class="col-span-1">
@@ -426,7 +416,6 @@
           <div id="audit-form-note" class="text-xs text-black/60"></div>
         </form>
 
-        <!-- Отказ -->
         <div class="mt-4 text-center">
           <button id="audit-decline" class="text-sm text-black/50 hover:text-black underline underline-offset-2">
             Нет, спасибо
@@ -437,11 +426,10 @@
   </div>
   <!-- ===== /MODAL ===== -->
 
-  <!-- Мини-трекинг кликов: скачивания и CTA -->
+  <!-- Мини-трекинг кликов -->
   <script>
   function track(ev, name, data={}) {
     if (window.gtag) { gtag('event', name, data); }
-    // Фолбэк: можно отправлять свой бэкенд
     // fetch('/track', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ev,name,data})}).catch(()=>{});
   }
 
@@ -466,72 +454,116 @@
   <script>
   (function(){
     const LS_KEY = 'dcore_audit_seen_at';
-    const COOLDOWN_DAYS = 7; // не показывать повторно 7 дней
+    const SESSION_KEY = 'dcore_audit_shown_session';
+    const COOLDOWN_DAYS = 7;
+
     const backdrop = document.getElementById('audit-backdrop');
     const modal    = document.getElementById('audit-modal');
     const btnClose = document.getElementById('audit-close');
     const btnDecl  = document.getElementById('audit-decline');
     const btnOpenForm = document.getElementById('cta-open-form');
     const form     = document.getElementById('audit-form');
-    const ctaTg    = document.getElementById('cta-telegram');
     const note     = document.getElementById('audit-form-note');
     const slots    = document.getElementById('slots-left');
     const toTgFromForm = document.getElementById('to-telegram-from-form');
 
-    // Слоты (честное ограничение, лёгкая визуализация)
-    const today = new Date();
-    const dayIndex = today.getDay(); // 0-6
-    const baseSlots = 7;
-    const bookedApprox = (dayIndex % 4) + 1; // псевдослучайно 1..4
-    const left = Math.max(1, baseSlots - bookedApprox);
-    slots.textContent = `Свободно: ${left} сл. на этой неделе`;
+    // Слоты
+    try {
+      const today = new Date();
+      const baseSlots = 7;
+      const bookedApprox = ((today.getDay() % 4) + 1);
+      const left = Math.max(1, baseSlots - bookedApprox);
+      if (slots) slots.textContent = `Свободно: ${left} сл. на этой неделе`;
+    } catch {}
 
-    // Показ/скрытие
-    function showModal(){
+    function now(){ return Date.now(); }
+
+    function canUseStorage(){
+      try {
+        const t = '__t__' + Math.random();
+        localStorage.setItem(t, '1');
+        localStorage.removeItem(t);
+        sessionStorage.setItem(t, '1');
+        sessionStorage.removeItem(t);
+        return true;
+      } catch { return false; }
+    }
+
+    function getSeenTs(){
+      try { return parseInt(localStorage.getItem(LS_KEY) || '0', 10) || 0; } catch { return 0; }
+    }
+    function setSeenTs(){
+      try { localStorage.setItem(LS_KEY, String(now())); } catch {}
+      try { sessionStorage.setItem(SESSION_KEY, '1'); } catch {}
+    }
+    function wasShownThisSession(){
+      try { return sessionStorage.getItem(SESSION_KEY) === '1'; } catch { return false; }
+    }
+
+    function canShow(){
+      // если в URL есть ?audit=1 или #audit — показываем всегда
+      const u = new URL(window.location.href);
+      if (u.searchParams.get('audit') === '1' || window.location.hash.includes('audit')) return true;
+
+      const ts = getSeenTs();
+      if (!ts) return true;
+      const diffDays = (now() - ts) / 86400000;
+      return diffDays >= COOLDOWN_DAYS;
+    }
+
+    // Показ/скрытие с жёсткой установкой display
+    function showModal(trigger='manual'){
+      if (!backdrop || !modal) return;
       backdrop.classList.remove('hidden');
-      // анимация
+      backdrop.style.display = 'flex'; // бэкап к Tailwind классам
       requestAnimationFrame(()=>{
         backdrop.classList.add('flex');
         modal.classList.remove('translate-y-6','md:scale-95','opacity-0');
         modal.classList.add('translate-y-0','md:scale-100','opacity-100');
       });
       document.body.style.overflow = 'hidden';
-      track('view', 'audit_modal_show');
+      try { sessionStorage.setItem(SESSION_KEY, '1'); } catch {}
+      track('view', 'audit_modal_show', { trigger });
     }
     function hideModal(reason='close'){
+      if (!backdrop || !modal) return;
       backdrop.classList.add('hidden');
       backdrop.classList.remove('flex');
+      backdrop.style.display = 'none';
       modal.classList.add('translate-y-6','md:scale-95','opacity-0');
       modal.classList.remove('translate-y-0','md:scale-100','opacity-100');
       document.body.style.overflow = '';
-      // запоминаем показ
-      localStorage.setItem(LS_KEY, Date.now().toString());
+      setSeenTs();
       track('click', 'audit_modal_hide', { reason });
     }
 
-    // Кап по показам
-    function canShow(){
-      try {
-        const ts = parseInt(localStorage.getItem(LS_KEY) || '0', 10);
-        if (!ts) return true;
-        const diffDays = (Date.now() - ts) / (1000*60*60*24);
-        return diffDays >= COOLDOWN_DAYS;
-      } catch { return true; }
-    }
-
-    // Триггеры показа: 20 сек, 50% скролла, exit-intent
     let shown = false;
     function tryShow(trigger){
-      if (shown || !canShow()) return;
-      shown = true;
-      showModal();
-      track('view', 'audit_modal_trigger', { trigger });
+      if (shown) return;
+      const forced = new URL(location.href).searchParams.get('audit') === '1' || location.hash.includes('audit');
+      const storageOk = canUseStorage();
+      const allowByCooldown = canShow();
+      // Если storage сломан, ведём себя как "первый визит"
+      if (forced || !storageOk || allowByCooldown || !wasShownThisSession()){
+        shown = true;
+        showModal(trigger);
+      }
     }
 
-    // 1) Таймер 20 сек
-    setTimeout(()=>tryShow('timer_20s'), 20000);
+    // Форс-показ по URL
+    if (location.search.includes('audit=1') || location.hash.includes('audit')) {
+      // очистим блокировку, чтобы проверить руками
+      try { localStorage.removeItem(LS_KEY); sessionStorage.removeItem(SESSION_KEY); } catch {}
+      tryShow('force_param');
+    }
 
-    // 2) Прокрутка 50%
+    // Базовые триггеры (смягчены):
+    // 1) таймер 8 сек на первый визит в сессию
+    if (!wasShownThisSession()) {
+      setTimeout(()=>tryShow('timer_8s'), 8000);
+    }
+
+    // 2) 35% скролла
     function onScroll(){
       const scrolled = window.scrollY || document.documentElement.scrollTop;
       const docH = Math.max(
@@ -539,14 +571,14 @@
         document.body.offsetHeight,  document.documentElement.offsetHeight,
         document.body.clientHeight,  document.documentElement.clientHeight
       );
-      if (scrolled / (docH - window.innerHeight) > 0.5) {
+      if (docH > window.innerHeight && (scrolled / (docH - window.innerHeight) > 0.35)) {
         window.removeEventListener('scroll', onScroll);
-        tryShow('scroll_50');
+        tryShow('scroll_35');
       }
     }
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // 3) Exit-intent (только десктоп)
+    // 3) Exit-intent — только десктоп
     function onMouseLeave(e){
       if (e.clientY <= 0) {
         window.removeEventListener('mouseout', onMouseLeave);
@@ -557,55 +589,62 @@
       window.addEventListener('mouseout', onMouseLeave);
     }
 
+    // 4) Бэкап: первый клик по странице (если ничего не сработало за 12 сек)
+    let armed = true;
+    setTimeout(()=>{ armed = true; }, 12000);
+    window.addEventListener('click', ()=>{ if (armed) { armed = false; tryShow('first_click'); } }, { once:true });
+
     // Закрытия
-    btnClose.addEventListener('click', ()=>hideModal('x'));
-    btnDecl.addEventListener('click', ()=>hideModal('decline'));
-    backdrop.addEventListener('click', (e)=>{ if (e.target === backdrop) hideModal('backdrop'); });
+    if (btnClose) btnClose.addEventListener('click', ()=>hideModal('x'));
+    if (btnDecl)  btnDecl.addEventListener('click', ()=>hideModal('decline'));
+    if (backdrop) backdrop.addEventListener('click', (e)=>{ if (e.target === backdrop) hideModal('backdrop'); });
 
     // Открыть форму
-    btnOpenForm.addEventListener('click', ()=>{
-      form.classList.remove('hidden');
-      form.scrollIntoView({ behavior:'smooth', block:'start' });
-      track('click', 'audit_open_form');
-    });
+    if (btnOpenForm && form) {
+      btnOpenForm.addEventListener('click', ()=>{
+        form.classList.remove('hidden');
+        form.scrollIntoView({ behavior:'smooth', block:'start' });
+        track('click', 'audit_open_form');
+      });
+    }
 
     // Отправка формы
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-      const payload = {
-        type: 'instagram_audit',
-        ...data,
-        page: location.href,
-        ts: new Date().toISOString()
-      };
-      const ENDPOINT = window.__LEAD_ENDPOINT__ || '/.netlify/functions/lead';
-      note.textContent = 'Отправляем...';
-      try{
-        await fetch(ENDPOINT, {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body: JSON.stringify(payload)
-        });
-        note.textContent = 'Готово! Мы свяжемся с вами в ближайшее время.';
-        track('submit', 'audit_form_success');
-        setTimeout(()=>hideModal('form_sent'), 1200);
-      }catch(err){
-        note.textContent = 'Не получилось отправить. Напишите, пожалуйста, в Telegram.';
-        track('error', 'audit_form_error', { message: String(err) });
+    if (form) {
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(form).entries());
+        const payload = { type: 'instagram_audit', ...data, page: location.href, ts: new Date().toISOString() };
+        const ENDPOINT = window.__LEAD_ENDPOINT__ || '/.netlify/functions/lead';
+        if (note) note.textContent = 'Отправляем...';
+        try{
+          await fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+          if (note) note.textContent = 'Готово! Мы свяжемся с вами в ближайшее время.';
+          track('submit', 'audit_form_success');
+          setTimeout(()=>hideModal('form_sent'), 1200);
+        }catch(err){
+          if (note) note.textContent = 'Не получилось отправить. Напишите, пожалуйста, в Telegram.';
+          track('error', 'audit_form_error', { message: String(err) });
+        }
+      });
+
+      // Перенос @username в Telegram CTA
+      function syncTgLink(){
+        const ig = form.querySelector('input[name="instagram"]')?.value?.trim() || '_____';
+        const base = 'Здравствуйте! Хочу бесплатный 20-минутный аудит Instagram. Мой @профиль: ';
+        const url  = 'https://t.me/dcoredanil?text=' + encodeURIComponent(base + ig);
+        const toTg = document.getElementById('to-telegram-from-form');
+        if (toTg) toTg.setAttribute('href', url);
       }
-    });
-
-    // Перенос введённого @username в Telegram CTA
-    function syncTgLink(){
-      const ig = form.querySelector('input[name="instagram"]')?.value?.trim() || '_____';
-      const base = 'Здравствуйте! Хочу бесплатный 20-минутный аудит Instagram. Мой @профиль: ';
-      const url = 'https://t.me/dcoredanil?text=' + encodeURIComponent(base + ig);
-      toTgFromForm.setAttribute('href', url);
+      form.addEventListener('input', syncTgLink);
+      syncTgLink();
     }
-    form.addEventListener('input', syncTgLink);
-    syncTgLink();
 
+    // Глобальная отладочная функция (в консоли): DCORE_DEBUG_AUDIT()
+    window.DCORE_DEBUG_AUDIT = function(){
+      try { localStorage.removeItem(LS_KEY); sessionStorage.removeItem(SESSION_KEY); } catch {}
+      shown = false;
+      tryShow('debug_call');
+    };
   })();
   </script>
 
