@@ -496,10 +496,11 @@
       tryShow('force_param');
     }
 
-    // Триггеры показа
-    if (!wasShownThisSession()) {
-      setTimeout(()=>tryShow('timer_8s'), 8000);
-    }
+ // Триггеры показа
+if (!wasShownThisSession()) {
+  setTimeout(()=>tryShow('timer_3s'), 3000);
+}
+
     function onScroll(){
       const scrolled = window.scrollY || document.documentElement.scrollTop;
       const docH = Math.max(
