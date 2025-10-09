@@ -199,7 +199,7 @@
     <section id="about" class="rounded-2xl border p-6 shadow bg-white mb-8">
       <div class="flex flex-col lg:flex-row gap-6 items-start">
         <div class="flex-1">
-          <h2 class="font-head text-2xl md:text-3xl font-extrabold mb-2">Кто я</h2>
+          <h2 class="font-head text-2xl md:3xl lg:text-3xl font-extrabold mb-2">Кто я</h2>
           <p class="text-black/80 leading-relaxed">
             5+ лет в маркетинге и продажах. Прошёл путь от SMM до разработки сайтов и настройки сквозной аналитики. Провожу минимум 2 встречи в день с владельцами бизнеса — вижу реальные цифры и боли в B2C и B2B.
           </p>
@@ -308,11 +308,141 @@
     <div class="mb-2">© 2025 DCORE</div>
   </footer>
 
+  <!-- ===== MODAL: Бесплатный аудит Instagram ===== -->
+  <div id="audit-backdrop"
+       class="fixed inset-0 z-[60] hidden items-end md:items-center justify-center bg-black/60 backdrop-blur-sm"
+       aria-hidden="true">
+    <div id="audit-modal"
+         role="dialog" aria-modal="true" aria-labelledby="audit-title"
+         class="relative w-full md:max-w-2xl bg-white rounded-t-3xl md:rounded-3xl shadow-2xl border overflow-hidden
+                translate-y-6 md:scale-95 opacity-0 transition-all duration-300 ease-out will-change-transform">
+      <!-- Ribbon / доверие -->
+      <div class="absolute -left-10 -top-10 rotate-[-15deg]">
+        <div class="bg-emerald-600 text-white text-xs md:text-sm font-bold px-6 py-2 rounded-xl shadow-lg">
+          Бесплатно • 20 минут
+        </div>
+      </div>
+
+      <div class="p-5 md:p-7">
+        <!-- Close -->
+        <button id="audit-close" aria-label="Закрыть окно"
+                class="absolute right-3 top-3 text-black/50 hover:text-black">
+          <i class="bi bi-x-lg text-xl"></i>
+        </button>
+
+        <!-- Заголовок -->
+        <div class="flex items-center gap-2 mb-2">
+          <i class="bi bi-graph-up-arrow text-emerald-600 text-xl"></i>
+          <div class="text-[11px] uppercase tracking-wide text-emerald-700 font-bold">мини-диагностика</div>
+        </div>
+        <h3 id="audit-title" class="font-extrabold text-2xl md:text-[28px] leading-tight">
+          Бесплатный аудит вашего Instagram-профиля для бизнеса
+        </h3>
+        <p class="text-black/70 mt-2">
+          За 20 минут покажу, где пропадают заявки, и что мешает продажам.
+        </p>
+
+        <!-- Соц.доказательство + ограничение -->
+        <div class="mt-3 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+          <div class="flex items-center gap-2 text-sm text-black/70">
+            <i class="bi bi-shield-check text-emerald-600"></i>
+            Конфиденциально • только о вашем бизнесе
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-full border bg-amber-50 text-amber-700">
+              <i class="bi bi-hourglass-split"></i> Беру до 7 аудитов в неделю
+            </span>
+            <span id="slots-left" class="text-xs text-black/60"></span>
+          </div>
+        </div>
+
+        <!-- Блок конкретики (что проверю) -->
+        <div class="grid md:grid-cols-2 gap-3 mt-5">
+          <div class="rounded-xl border p-3">
+            <div class="font-semibold mb-2">Продажи и заявки</div>
+            <ul class="space-y-2 text-sm text-black/80">
+              <li class="flex gap-2"><i class="bi bi-check2 text-emerald-600"></i>Качество воронки: профиль → диалог → заявка → покупка</li>
+              <li class="flex gap-2"><i class="bi bi-check2 text-emerald-600"></i>Скорость и сценарии ответа менеджера (ролевая проверка)</li>
+              <li class="flex gap-2"><i class="bi bi-check2 text-emerald-600"></i>Скрипты, возражения, закрывающие вопросы</li>
+            </ul>
+          </div>
+          <div class="rounded-xl border p-3">
+            <div class="font-semibold mb-2">Трафик и профиль</div>
+            <ul class="space-y-2 text-sm text-black/80">
+              <li class="flex gap-2"><i class="bi bi-check2 text-emerald-600"></i>Оффер/шапка, закрепы, хайлайтсы, контент-матрица</li>
+              <li class="flex gap-2"><i class="bi bi-check2 text-emerald-600"></i>UTM/пиксель/ретаргет, кликабельность ссылок</li>
+              <li class="flex gap-2"><i class="bi bi-check2 text-emerald-600"></i>Лиды из рекламы/рекомендаций: где теряются</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CTA блок -->
+        <div class="mt-6 flex flex-col md:flex-row items-stretch md:items-center gap-3">
+          <a id="cta-telegram"
+             href="https://t.me/dcoredanil?text=Здравствуйте!%20Хочу%20бесплатный%2020-минутный%20аудит%20Instagram.%20Мой%20@профиль:%20_____"
+             target="_blank" rel="noopener"
+             class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-black text-white font-bold hover:bg-[#222]">
+            <i class="bi bi-telegram"></i> Получить аудит в Telegram
+          </a>
+          <button id="cta-open-form"
+                  class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border font-bold hover:bg-[#111] hover:text-white">
+            <i class="bi bi-ui-checks-grid"></i> Оставить контакты
+          </button>
+        </div>
+
+        <!-- Микро-гарантии -->
+        <div class="mt-3 text-xs text-black/60">
+          Нажимая, вы соглашаетесь на разовую связь по вашей заявке. Спам не шлём.
+        </div>
+
+        <!-- Встроенная форма (второй шаг) -->
+        <form id="audit-form" class="hidden mt-5 space-y-3">
+          <div class="grid md:grid-cols-3 gap-3">
+            <div class="col-span-1">
+              <label class="text-sm text-black/70">Имя</label>
+              <input type="text" name="name" class="mt-1 w-full rounded-xl border px-3 py-2" placeholder="Как к вам обращаться">
+            </div>
+            <div class="col-span-1">
+              <label class="text-sm text-black/70">Instagram</label>
+              <input type="text" name="instagram" class="mt-1 w-full rounded-xl border px-3 py-2" placeholder="@username">
+            </div>
+            <div class="col-span-1">
+              <label class="text-sm text-black/70">Телефон (опционально)</label>
+              <input type="tel" name="phone" class="mt-1 w-full rounded-xl border px-3 py-2" placeholder="+998...">
+            </div>
+          </div>
+          <div class="flex flex-col md:flex-row gap-3">
+            <button type="submit"
+                    class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-emerald-600 text-white font-bold hover:bg-emerald-700">
+              <i class="bi bi-send"></i> Отправить заявку
+            </button>
+            <a id="to-telegram-from-form"
+               href="https://t.me/dcoredanil?text=Здравствуйте!%20Хочу%20бесплатный%2020-минутный%20аудит%20Instagram.%20Мой%20@профиль:%20_____"
+               target="_blank" rel="noopener"
+               class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border font-bold hover:bg-[#111] hover:text-white">
+              <i class="bi bi-telegram"></i> Или сразу в Telegram
+            </a>
+          </div>
+          <div id="audit-form-note" class="text-xs text-black/60"></div>
+        </form>
+
+        <!-- Отказ -->
+        <div class="mt-4 text-center">
+          <button id="audit-decline" class="text-sm text-black/50 hover:text-black underline underline-offset-2">
+            Нет, спасибо
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ===== /MODAL ===== -->
+
   <!-- Мини-трекинг кликов: скачивания и CTA -->
   <script>
   function track(ev, name, data={}) {
     if (window.gtag) { gtag('event', name, data); }
-    // сюда можно добавить свой фолбэк: fetch('/track', {method:'POST', body:JSON.stringify({ev,name,data})})
+    // Фолбэк: можно отправлять свой бэкенд
+    // fetch('/track', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ev,name,data})}).catch(()=>{});
   }
 
   document.addEventListener('click', (e) => {
@@ -330,6 +460,153 @@
       track('click', 'cta_call', { link: href });
     }
   });
+  </script>
+
+  <!-- Логика модального окна -->
+  <script>
+  (function(){
+    const LS_KEY = 'dcore_audit_seen_at';
+    const COOLDOWN_DAYS = 7; // не показывать повторно 7 дней
+    const backdrop = document.getElementById('audit-backdrop');
+    const modal    = document.getElementById('audit-modal');
+    const btnClose = document.getElementById('audit-close');
+    const btnDecl  = document.getElementById('audit-decline');
+    const btnOpenForm = document.getElementById('cta-open-form');
+    const form     = document.getElementById('audit-form');
+    const ctaTg    = document.getElementById('cta-telegram');
+    const note     = document.getElementById('audit-form-note');
+    const slots    = document.getElementById('slots-left');
+    const toTgFromForm = document.getElementById('to-telegram-from-form');
+
+    // Слоты (честное ограничение, лёгкая визуализация)
+    const today = new Date();
+    const dayIndex = today.getDay(); // 0-6
+    const baseSlots = 7;
+    const bookedApprox = (dayIndex % 4) + 1; // псевдослучайно 1..4
+    const left = Math.max(1, baseSlots - bookedApprox);
+    slots.textContent = `Свободно: ${left} сл. на этой неделе`;
+
+    // Показ/скрытие
+    function showModal(){
+      backdrop.classList.remove('hidden');
+      // анимация
+      requestAnimationFrame(()=>{
+        backdrop.classList.add('flex');
+        modal.classList.remove('translate-y-6','md:scale-95','opacity-0');
+        modal.classList.add('translate-y-0','md:scale-100','opacity-100');
+      });
+      document.body.style.overflow = 'hidden';
+      track('view', 'audit_modal_show');
+    }
+    function hideModal(reason='close'){
+      backdrop.classList.add('hidden');
+      backdrop.classList.remove('flex');
+      modal.classList.add('translate-y-6','md:scale-95','opacity-0');
+      modal.classList.remove('translate-y-0','md:scale-100','opacity-100');
+      document.body.style.overflow = '';
+      // запоминаем показ
+      localStorage.setItem(LS_KEY, Date.now().toString());
+      track('click', 'audit_modal_hide', { reason });
+    }
+
+    // Кап по показам
+    function canShow(){
+      try {
+        const ts = parseInt(localStorage.getItem(LS_KEY) || '0', 10);
+        if (!ts) return true;
+        const diffDays = (Date.now() - ts) / (1000*60*60*24);
+        return diffDays >= COOLDOWN_DAYS;
+      } catch { return true; }
+    }
+
+    // Триггеры показа: 20 сек, 50% скролла, exit-intent
+    let shown = false;
+    function tryShow(trigger){
+      if (shown || !canShow()) return;
+      shown = true;
+      showModal();
+      track('view', 'audit_modal_trigger', { trigger });
+    }
+
+    // 1) Таймер 20 сек
+    setTimeout(()=>tryShow('timer_20s'), 20000);
+
+    // 2) Прокрутка 50%
+    function onScroll(){
+      const scrolled = window.scrollY || document.documentElement.scrollTop;
+      const docH = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight,  document.documentElement.offsetHeight,
+        document.body.clientHeight,  document.documentElement.clientHeight
+      );
+      if (scrolled / (docH - window.innerHeight) > 0.5) {
+        window.removeEventListener('scroll', onScroll);
+        tryShow('scroll_50');
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // 3) Exit-intent (только десктоп)
+    function onMouseLeave(e){
+      if (e.clientY <= 0) {
+        window.removeEventListener('mouseout', onMouseLeave);
+        tryShow('exit_intent');
+      }
+    }
+    if (window.matchMedia('(pointer:fine)').matches) {
+      window.addEventListener('mouseout', onMouseLeave);
+    }
+
+    // Закрытия
+    btnClose.addEventListener('click', ()=>hideModal('x'));
+    btnDecl.addEventListener('click', ()=>hideModal('decline'));
+    backdrop.addEventListener('click', (e)=>{ if (e.target === backdrop) hideModal('backdrop'); });
+
+    // Открыть форму
+    btnOpenForm.addEventListener('click', ()=>{
+      form.classList.remove('hidden');
+      form.scrollIntoView({ behavior:'smooth', block:'start' });
+      track('click', 'audit_open_form');
+    });
+
+    // Отправка формы
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      const payload = {
+        type: 'instagram_audit',
+        ...data,
+        page: location.href,
+        ts: new Date().toISOString()
+      };
+      const ENDPOINT = window.__LEAD_ENDPOINT__ || '/.netlify/functions/lead';
+      note.textContent = 'Отправляем...';
+      try{
+        await fetch(ENDPOINT, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify(payload)
+        });
+        note.textContent = 'Готово! Мы свяжемся с вами в ближайшее время.';
+        track('submit', 'audit_form_success');
+        setTimeout(()=>hideModal('form_sent'), 1200);
+      }catch(err){
+        note.textContent = 'Не получилось отправить. Напишите, пожалуйста, в Telegram.';
+        track('error', 'audit_form_error', { message: String(err) });
+      }
+    });
+
+    // Перенос введённого @username в Telegram CTA
+    function syncTgLink(){
+      const ig = form.querySelector('input[name="instagram"]')?.value?.trim() || '_____';
+      const base = 'Здравствуйте! Хочу бесплатный 20-минутный аудит Instagram. Мой @профиль: ';
+      const url = 'https://t.me/dcoredanil?text=' + encodeURIComponent(base + ig);
+      toTgFromForm.setAttribute('href', url);
+    }
+    form.addEventListener('input', syncTgLink);
+    syncTgLink();
+
+  })();
   </script>
 
   <script src="/assets/main.js"></script>
